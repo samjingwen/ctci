@@ -25,13 +25,13 @@ func sortString(s string) string {
 }
 
 func IsUnique1(str string) bool {
-	cache := make(map[int32]bool)
+	var cache [128]bool
 	for _, char := range str {
-		_, exists := cache[char]
-		if exists {
+		val := char - 'a'
+		if cache[val] {
 			return false
 		}
-		cache[char] = true
+		cache[val] = true
 	}
 	return true
 }
@@ -42,6 +42,19 @@ func IsUnique2(str string) bool {
 		if s[i] == s[i-1] {
 			return false
 		}
+	}
+	return true
+}
+
+func IsUnique3(str string) bool {
+	checker := 0
+	chars := []rune(str)
+	for i := 0; i < len(chars); i++ {
+		val := chars[i] - 'a'
+		if checker&(1<<val) > 0 {
+			return false
+		}
+		checker |= 1 << val
 	}
 	return true
 }

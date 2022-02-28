@@ -4,8 +4,8 @@ func CheckPermutation(s1, s2 string) bool {
 	if len(s1) != len(s2) {
 		return false
 	}
-	s1CharCountMap := getCharCount(s1)
-	s2CharCountMap := getCharCount(s2)
+	s1CharCountMap := getCharCountMap(s1)
+	s2CharCountMap := getCharCountMap(s2)
 
 	for k, s1Count := range s1CharCountMap {
 		s2Count, exists := s2CharCountMap[k]
@@ -18,14 +18,14 @@ func CheckPermutation(s1, s2 string) bool {
 	return true
 }
 
-func getCharCount(s string) map[int32]int {
-	charCount := make(map[int32]int)
-	for _, val := range s {
-		_, exists := charCount[val]
+func getCharCountMap(str string) map[rune]int {
+	charCount := make(map[rune]int)
+	for _, char := range str {
+		_, exists := charCount[char]
 		if exists {
-			charCount[val] += 1
+			charCount[char] += 1
 		} else {
-			charCount[val] = 1
+			charCount[char] = 1
 		}
 	}
 	return charCount
