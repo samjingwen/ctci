@@ -20,7 +20,7 @@ func main() {
 
 	b := bitVector & mask
 
-	a := bitVector & (^mask)
+	a := bitVector & ^mask
 
 	c := bitVector | mask
 
