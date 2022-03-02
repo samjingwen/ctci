@@ -32,3 +32,14 @@ func RotateMatrix(image Image) Image {
 	}
 	return image
 }
+
+func (image Image) equals(other Image) bool {
+	for i, x := range image {
+		for j, y := range x {
+			if other[i][j] != y {
+				return false
+			}
+		}
+	}
+	return true
+}
