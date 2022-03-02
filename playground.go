@@ -1,6 +1,10 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"math/rand"
+	"time"
+)
 
 func main() {
 	//const nihongo = "日本語\u0099"
@@ -28,17 +32,25 @@ func main() {
 	//
 	//fmt.Printf("%b\n", c)
 
-	head := makeNodeFromSlice([]int{1, 2, 3, 4, 5})
-	arr := makeSliceFromNode(head)
-	fmt.Println(arr)
+	//head := makeNodeFromSlice([]int{1, 2, 3, 4, 5})
+	//arr := makeSliceFromNode(head)
+	//fmt.Println(arr)
+	//
+	//fmt.Println(head.equals([]int{1, 2, 3, 4, 5}))
+	//fmt.Println(head.equals([]int{1, 2, 3, 5}))
+	//fmt.Println(head.equals([]int{1, 2, 3, 4, 5, 6}))
+	//fmt.Println(head.equals([]int{}))
+	//
+	//head.append(6)
+	//fmt.Println(makeSliceFromNode(head))
 
-	fmt.Println(head.equals([]int{1, 2, 3, 4, 5}))
-	fmt.Println(head.equals([]int{1, 2, 3, 5}))
-	fmt.Println(head.equals([]int{1, 2, 3, 4, 5, 6}))
-	fmt.Println(head.equals([]int{}))
+	source := rand.NewSource(time.Now().UnixNano())
+	random := rand.New(source)
 
-	head.append(6)
-	fmt.Println(makeSliceFromNode(head))
+	for i := 0; i < 100; i++ {
+		fmt.Println(random.Intn(2))
+	}
+
 }
 
 type Node struct {
