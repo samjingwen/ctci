@@ -14,11 +14,11 @@ var tests = []struct {
 	args args
 	want [][]int
 }{
-	{args{MakeNodeFromSlice([]int{3, 5, 8, 5, 10, 2, 1}), 5},
+	{args{MakeNodeFromSlice(3, 5, 8, 5, 10, 2, 1), 5},
 		[][]int{{3, 2, 1, 5, 10, 5, 8}, {3, 2, 1, 5, 8, 5, 10}, {1, 2, 3, 5, 10, 5, 8}}},
-	{args{MakeNodeFromSlice([]int{5, 5, 5, 10, 1, 2, 3, 4}), 5},
+	{args{MakeNodeFromSlice(5, 5, 5, 10, 1, 2, 3, 4), 5},
 		[][]int{{1, 2, 3, 4, 5, 5, 5, 10}, {4, 3, 2, 1, 5, 5, 5, 10}}},
-	{args{MakeNodeFromSlice([]int{5, 5, 5, 10, 1, 2, 3, 4, 5}), 5},
+	{args{MakeNodeFromSlice(5, 5, 5, 10, 1, 2, 3, 4, 5), 5},
 		[][]int{{1, 2, 3, 4, 5, 5, 5, 10, 5}, {4, 3, 2, 1, 5, 5, 5, 10, 5}}},
 }
 

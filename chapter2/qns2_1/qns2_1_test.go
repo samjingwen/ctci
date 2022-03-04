@@ -13,17 +13,17 @@ var tests = []struct {
 	want []int
 }{
 	{"", args{nil}, nil},
-	{"", args{MakeNodeFromSlice([]int{1})}, []int{1}},
-	{"", args{MakeNodeFromSlice([]int{1, 1})}, []int{1}},
-	{"", args{MakeNodeFromSlice([]int{1, 1, 1})}, []int{1}},
-	{"", args{MakeNodeFromSlice([]int{1, 1, 1, 1})}, []int{1}},
-	{"", args{MakeNodeFromSlice([]int{1, 2, 3, 4, 5})}, []int{1, 2, 3, 4, 5}},
-	{"", args{MakeNodeFromSlice([]int{1, 1, 3, 4, 5})}, []int{1, 3, 4, 5}},
-	{"", args{MakeNodeFromSlice([]int{1, 2, 1, 4, 5})}, []int{1, 2, 4, 5}},
-	{"", args{MakeNodeFromSlice([]int{1, 2, 3, 4, 4})}, []int{1, 2, 3, 4}},
-	{"", args{MakeNodeFromSlice([]int{1, 1, 3, 4, 5, 1})}, []int{1, 3, 4, 5}},
-	{"", args{MakeNodeFromSlice([]int{1, 1, 3, 4, 5, 4})}, []int{1, 3, 4, 5}},
-	{"", args{MakeNodeFromSlice([]int{1, 2, 3, 4, 5, 5, 5})}, []int{1, 2, 3, 4, 5}},
+	{"", args{MakeNodeFromSlice(1)}, []int{1}},
+	{"", args{MakeNodeFromSlice(1, 1)}, []int{1}},
+	{"", args{MakeNodeFromSlice(1, 1, 1)}, []int{1}},
+	{"", args{MakeNodeFromSlice(1, 1, 1, 1)}, []int{1}},
+	{"", args{MakeNodeFromSlice(1, 2, 3, 4, 5)}, []int{1, 2, 3, 4, 5}},
+	{"", args{MakeNodeFromSlice(1, 1, 3, 4, 5)}, []int{1, 3, 4, 5}},
+	{"", args{MakeNodeFromSlice(1, 2, 1, 4, 5)}, []int{1, 2, 4, 5}},
+	{"", args{MakeNodeFromSlice(1, 2, 3, 4, 4)}, []int{1, 2, 3, 4}},
+	{"", args{MakeNodeFromSlice(1, 1, 3, 4, 5, 1)}, []int{1, 3, 4, 5}},
+	{"", args{MakeNodeFromSlice(1, 1, 3, 4, 5, 4)}, []int{1, 3, 4, 5}},
+	{"", args{MakeNodeFromSlice(1, 2, 3, 4, 5, 5, 5)}, []int{1, 2, 3, 4, 5}},
 }
 
 func TestRemoveDups1(t *testing.T) {

@@ -14,11 +14,11 @@ var tests = []struct {
 	want []int
 }{
 	{"", args{nil, 0}, []int{}},
-	{"", args{MakeNodeFromSlice([]int{1}), 1}, []int{1}},
-	{"", args{MakeNodeFromSlice([]int{1, 2}), 1}, []int{2}},
-	{"", args{MakeNodeFromSlice([]int{1, 2}), 2}, []int{1, 2}},
-	{"", args{MakeNodeFromSlice([]int{1, 2, 3, 4, 5}), 2}, []int{4, 5}},
-	{"", args{MakeNodeFromSlice([]int{1, 2, 3, 4, 5}), 1}, []int{5}},
+	{"", args{MakeNodeFromSlice(1), 1}, []int{1}},
+	{"", args{MakeNodeFromSlice(1, 2), 1}, []int{2}},
+	{"", args{MakeNodeFromSlice(1, 2), 2}, []int{1, 2}},
+	{"", args{MakeNodeFromSlice(1, 2, 3, 4, 5), 2}, []int{4, 5}},
+	{"", args{MakeNodeFromSlice(1, 2, 3, 4, 5), 1}, []int{5}},
 }
 
 func TestKthToLast1(t *testing.T) {

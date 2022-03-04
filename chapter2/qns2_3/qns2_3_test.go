@@ -31,7 +31,7 @@ func TestDeleteMiddleNode(t *testing.T) {
 }
 
 func makeArgs(arr []int, index int) args {
-	head := MakeNodeFromSlice(arr)
+	head := MakeNodeFromSlice(arr...)
 
 	ptr := head
 	for i := 0; i < index; i++ {
