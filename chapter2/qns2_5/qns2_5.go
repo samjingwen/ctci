@@ -61,7 +61,6 @@ func SumLists2(augend, addend *Node) *Node {
 		if len(stack2) > 0 {
 			node.Data += stack2[len(stack2)-1]
 			stack2 = stack2[:len(stack2)-1]
-
 		}
 		carry = node.Data / 10
 		node.Data %= 10
