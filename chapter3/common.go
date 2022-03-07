@@ -2,18 +2,24 @@ package chapter3
 
 import "errors"
 
-type Stack []int
+type Stack struct {
+	values []int
+}
 
-func (stack *Stack) Append(val int) {
-	*stack = append(*stack, val)
+func NewStack(arr ...int) *Stack {
+	return &Stack{arr}
+}
+
+func (stack *Stack) Push(val int) {
+	stack.values = append(stack.values, val)
 }
 
 func (stack *Stack) Pop() (int, error) {
 	if stack.IsEmpty() {
 		return 0, errors.New("stack is empty")
 	}
-	val := (*stack)[len(*stack)-1]
-	*stack = (*stack)[:len(*stack)-1]
+	val := stack.values[stack.Size()-1]
+	stack.values = stack.values[:stack.Size()-1]
 	return val, nil
 }
 
@@ -21,11 +27,19 @@ func (stack *Stack) Peek() (int, error) {
 	if stack.IsEmpty() {
 		return 0, errors.New("stack is empty")
 	}
-	return (*stack)[len(*stack)-1], nil
+	return stack.values[stack.Size()-1], nil
 }
 
 func (stack *Stack) IsEmpty() bool {
-	return len(*stack) == 0
+	return stack.Size() == 0
+}
+
+func (stack *Stack) Size() int {
+	return len(stack.values)
+}
+
+func (stack *Stack) Values() []int {
+	return stack.values
 }
 
 type Queue []int
