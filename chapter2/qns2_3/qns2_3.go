@@ -2,7 +2,7 @@ package qns2_3
 
 import . "ctci/chapter2"
 
-func DeleteMiddleNode(node *Node) {
+func DeleteMiddleNode(node *LinkedListNode) {
 	curr := node
 	for curr != nil {
 		curr.Data = curr.Next.Data

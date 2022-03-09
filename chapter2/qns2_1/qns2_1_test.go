@@ -4,7 +4,7 @@ import "testing"
 import . "ctci/chapter2"
 
 type args struct {
-	head *Node
+	head *LinkedListNode
 }
 
 var tests = []struct {

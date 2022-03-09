@@ -2,7 +2,7 @@ package qns2_2
 
 import . "ctci/chapter2"
 
-func KthToLast1(head *Node, k int) *Node {
+func KthToLast1(head *LinkedListNode, k int) *LinkedListNode {
 	length := 0
 	curr := head
 	for curr != nil {
@@ -19,12 +19,12 @@ func KthToLast1(head *Node, k int) *Node {
 }
 
 // Recursive solution
-func KthToLast2(head *Node, k int) *Node {
+func KthToLast2(head *LinkedListNode, k int) *LinkedListNode {
 	var index int
-	var found *Node
+	var found *LinkedListNode
 
-	var iter func(*Node)
-	iter = func(curr *Node) {
+	var iter func(*LinkedListNode)
+	iter = func(curr *LinkedListNode) {
 		if curr == nil {
 			return
 		}

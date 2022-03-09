@@ -13,9 +13,11 @@ func SortStack(stack *Stack) {
 	length := stack.Size()
 	temp := Stack{}
 	for i := 0; i < length; i++ {
-		maxVal, _ := stack.Pop()
+		maxPop, _ := stack.Pop()
+		maxVal := maxPop.(int)
 		for j := 0; j < length-i-1; j++ {
-			val, _ := stack.Pop()
+			pop, _ := stack.Pop()
+			val := pop.(int)
 			if val > maxVal {
 				temp.Push(maxVal)
 				maxVal = val

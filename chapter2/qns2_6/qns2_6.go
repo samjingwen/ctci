@@ -2,11 +2,11 @@ package qns2_6
 
 import . "ctci/chapter2"
 
-func Palindrome(head *Node) bool {
+func Palindrome(head *LinkedListNode) bool {
 	ptr := head
 
-	var iter func(*Node) bool
-	iter = func(node *Node) bool {
+	var iter func(*LinkedListNode) bool
+	iter = func(node *LinkedListNode) bool {
 		if node == nil {
 			return true
 		}

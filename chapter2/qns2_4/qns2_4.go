@@ -6,7 +6,7 @@ import . "ctci/chapter2"
 // 3 -> 2 -> 8 -> 5 -> 10 -> 5 -> 1 swap(1, 5)
 // 3 -> 2 -> 1 -> 5 -> 10 -> 5 -> 8 swap(2, 6)
 
-func Partition1(head *Node, partition int) *Node {
+func Partition1(head *LinkedListNode, partition int) *LinkedListNode {
 	ptr := head
 	index := -1
 	for ptr != nil {
@@ -19,12 +19,12 @@ func Partition1(head *Node, partition int) *Node {
 	return head
 }
 
-func Partition2(head *Node, partition int) *Node {
+func Partition2(head *LinkedListNode, partition int) *LinkedListNode {
 	ptr := head
-	var beforeStart *Node
-	var beforeEnd *Node
-	var afterStart *Node
-	var afterEnd *Node
+	var beforeStart *LinkedListNode
+	var beforeEnd *LinkedListNode
+	var afterStart *LinkedListNode
+	var afterEnd *LinkedListNode
 
 	for ptr != nil {
 		next := ptr.Next
@@ -54,7 +54,7 @@ func Partition2(head *Node, partition int) *Node {
 	return beforeStart
 }
 
-func Partition3(head *Node, partition int) *Node {
+func Partition3(head *LinkedListNode, partition int) *LinkedListNode {
 	start := head
 	end := head
 	ptr := head
@@ -74,7 +74,7 @@ func Partition3(head *Node, partition int) *Node {
 	return start
 }
 
-func swap(node *Node, head *Node, index int) {
+func swap(node *LinkedListNode, head *LinkedListNode, index int) {
 	ptr := head
 	count := 0
 	for ptr != nil && count < index {

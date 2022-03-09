@@ -5,12 +5,12 @@ import (
 	"strings"
 )
 
-type Node struct {
+type LinkedListNode struct {
 	Data int
-	Next *Node
+	Next *LinkedListNode
 }
 
-func (node *Node) String() string {
+func (node *LinkedListNode) String() string {
 	ptr := node
 	var builder strings.Builder
 	fmt.Fprintf(&builder, "[")
@@ -25,8 +25,8 @@ func (node *Node) String() string {
 	return builder.String()
 }
 
-func (node *Node) Append(data int) {
-	end := Node{data, nil}
+func (node *LinkedListNode) Append(data int) {
+	end := LinkedListNode{data, nil}
 	ptr := node
 	for ptr.Next != nil {
 		ptr = ptr.Next
@@ -34,7 +34,7 @@ func (node *Node) Append(data int) {
 	ptr.Next = &end
 }
 
-func (node *Node) Equals(arr []int) bool {
+func (node *LinkedListNode) Equals(arr []int) bool {
 	ptr := node
 	for _, val := range arr {
 		if ptr == nil || ptr.Data != val {
@@ -48,18 +48,18 @@ func (node *Node) Equals(arr []int) bool {
 	return true
 }
 
-func MakeNodeFromSlice(arr ...int) *Node {
-	head := Node{0, nil}
+func MakeNodeFromSlice(arr ...int) *LinkedListNode {
+	head := LinkedListNode{0, nil}
 	ptr := &head
 	for _, val := range arr {
-		curr := Node{val, nil}
+		curr := LinkedListNode{val, nil}
 		ptr.Next = &curr
 		ptr = ptr.Next
 	}
 	return head.Next
 }
 
-func MakeSliceFromNode(head *Node) []int {
+func MakeSliceFromNode(head *LinkedListNode) []int {
 	var arr []int
 	ptr := head
 	for ptr != nil {

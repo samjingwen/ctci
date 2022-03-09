@@ -5,7 +5,7 @@ import . "ctci/chapter2"
 
 func TestPalindrome(t *testing.T) {
 	type args struct {
-		head *Node
+		head *LinkedListNode
 	}
 	tests := []struct {
 		name string

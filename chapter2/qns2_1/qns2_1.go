@@ -2,7 +2,7 @@ package qns2_1
 
 import . "ctci/chapter2"
 
-func RemoveDups1(head *Node) {
+func RemoveDups1(head *LinkedListNode) {
 	if head == nil {
 		return
 	}
@@ -21,7 +21,7 @@ func RemoveDups1(head *Node) {
 	}
 }
 
-func RemoveDups2(head *Node) {
+func RemoveDups2(head *LinkedListNode) {
 	curr := head
 	for curr != nil {
 		prev := curr

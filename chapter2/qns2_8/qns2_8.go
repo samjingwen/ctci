@@ -2,7 +2,7 @@ package qns2_8
 
 import . "ctci/chapter2"
 
-func LoopDetection(node *Node) *Node {
+func LoopDetection(node *LinkedListNode) *LinkedListNode {
 	fast, slow := node, node
 	for {
 		fast = fast.Next.Next

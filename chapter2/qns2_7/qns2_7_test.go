@@ -6,9 +6,9 @@ import (
 import . "ctci/chapter2"
 
 type argsAndWants struct {
-	node1 *Node
-	node2 *Node
-	want  *Node
+	node1 *LinkedListNode
+	node2 *LinkedListNode
+	want  *LinkedListNode
 }
 
 var tests = []struct {
@@ -30,7 +30,7 @@ func TestIntersection(t *testing.T) {
 	}
 }
 func makeArgsAndWant1() argsAndWants {
-	ptr1 := &Node{Data: 1}
+	ptr1 := &LinkedListNode{Data: 1}
 	ptr2 := ptr1
 	return argsAndWants{ptr1, ptr2, ptr1}
 }

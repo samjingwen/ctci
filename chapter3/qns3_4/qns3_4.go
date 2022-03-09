@@ -23,5 +23,5 @@ func (queue *MyQueue) Enqueue(value int) {
 
 func (queue *MyQueue) Deque() int {
 	res, _ := queue.back.Pop()
-	return res
+	return res.(int)
 }

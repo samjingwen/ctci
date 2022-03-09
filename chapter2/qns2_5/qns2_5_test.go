@@ -8,13 +8,13 @@ import . "ctci/chapter2"
 
 func TestSumLists1(t *testing.T) {
 	type args struct {
-		augend *Node
-		addend *Node
+		augend *LinkedListNode
+		addend *LinkedListNode
 	}
 	tests := []struct {
 		name string
 		args args
-		want *Node
+		want *LinkedListNode
 	}{
 		{"", args{MakeNodeFromSlice(7, 1, 6), MakeNodeFromSlice(5, 9, 2)}, MakeNodeFromSlice(2, 1, 9)},
 		{"", args{MakeNodeFromSlice(7, 1, 6), MakeNodeFromSlice(5, 9, 3)}, MakeNodeFromSlice(2, 1, 0, 1)},
@@ -32,13 +32,13 @@ func TestSumLists1(t *testing.T) {
 
 func TestSumLists2(t *testing.T) {
 	type args struct {
-		augend *Node
-		addend *Node
+		augend *LinkedListNode
+		addend *LinkedListNode
 	}
 	tests := []struct {
 		name string
 		args args
-		want *Node
+		want *LinkedListNode
 	}{
 		{"", args{MakeNodeFromSlice(6, 1, 7), MakeNodeFromSlice(2, 9, 5)}, MakeNodeFromSlice(9, 1, 2)},
 		{"", args{MakeNodeFromSlice(6, 1, 7), MakeNodeFromSlice(3, 9, 5)}, MakeNodeFromSlice(1, 0, 1, 2)},

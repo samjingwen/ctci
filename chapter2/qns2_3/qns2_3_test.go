@@ -6,8 +6,8 @@ import (
 )
 
 type args struct {
-	head     *Node
-	toDelete *Node
+	head     *LinkedListNode
+	toDelete *LinkedListNode
 }
 
 var tests = []struct {

@@ -1,29 +1,90 @@
 package chapter4
 
-import "errors"
+import (
+	. "ctci/chapter3"
+)
 
-type Queue []interface{}
-
-func (q *Queue) Enqueue(val interface{}) {
-	*q = append(*q, val)
+type BST struct {
+	Size     int
+	RootNode *TreeNode
 }
 
-func (q *Queue) Deque() (interface{}, error) {
-	if q.IsEmpty() {
-		return nil, errors.New("queue is empty")
+type TreeNode struct {
+	Data        int
+	Left, Right *TreeNode
+}
+
+func (tree *BST) Add(elem int) {
+	var iter func(node *TreeNode, elem int) *TreeNode
+	iter = func(node *TreeNode, elem int) *TreeNode {
+		if node == nil {
+			return &TreeNode{Data: elem}
+		}
+		if elem == node.Data {
+			return node
+		} else if elem < node.Data {
+			node.Left = iter(node.Left, elem)
+		} else {
+			node.Right = iter(node.Right, elem)
+		}
+		return node
 	}
-	val := (*q)[0]
-	*q = (*q)[1:]
-	return val, nil
+	tree.RootNode = iter(tree.RootNode, elem)
+	tree.Size++
 }
 
-func (q *Queue) Peek() (interface{}, error) {
-	if q.IsEmpty() {
-		return nil, errors.New("queue is empty")
+func (tree *BST) Contains(elem int) bool {
+	var iter func(*TreeNode, int) bool
+	iter = func(node *TreeNode, elem int) bool {
+		if node == nil {
+			return false
+		}
+		if elem == node.Data {
+			return true
+		} else if elem < node.Data {
+			return iter(node.Left, elem)
+		} else {
+			return iter(node.Right, elem)
+		}
 	}
-	return (*q)[0], nil
+	return iter(tree.RootNode, elem)
 }
 
-func (q *Queue) IsEmpty() bool {
-	return len(*q) == 0
+func (tree *BST) Depth() int {
+	var iter func(*TreeNode) int
+	iter = func(node *TreeNode) int {
+		if node == nil {
+			return 0
+		}
+		return max(iter(node.Left), iter(node.Right)) + 1
+	}
+	return iter(tree.RootNode)
+}
+
+func (tree *BST) LevelOrderTraversal() []int {
+	var res []int
+
+	root := tree.RootNode
+
+	queue := Queue{}
+	queue.Enqueue(root)
+	for !queue.IsEmpty() {
+		curr, _ := queue.Deque()
+		node := curr.(*TreeNode)
+		res = append(res, node.Data)
+		if node.Left != nil {
+			queue.Enqueue(node.Left)
+		}
+		if node.Right != nil {
+			queue.Enqueue(node.Right)
+		}
+	}
+	return res
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }

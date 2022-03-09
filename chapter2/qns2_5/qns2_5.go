@@ -5,15 +5,15 @@ import (
 )
 
 // 1's is at head
-func SumLists1(augend, addend *Node) *Node {
-	result := &Node{}
+func SumLists1(augend, addend *LinkedListNode) *LinkedListNode {
+	result := &LinkedListNode{}
 	runner := result
 
 	i, j := augend, addend
 
 	carry := 0
 	for i != nil || j != nil {
-		sum := &Node{Data: carry}
+		sum := &LinkedListNode{Data: carry}
 		if i != nil {
 			sum.Data += i.Data
 			i = i.Next
@@ -29,14 +29,14 @@ func SumLists1(augend, addend *Node) *Node {
 		runner = runner.Next
 	}
 	if carry != 0 {
-		runner.Next = &Node{Data: carry}
+		runner.Next = &LinkedListNode{Data: carry}
 	}
 
 	return result.Next
 }
 
 // 1's is at tail
-func SumLists2(augend, addend *Node) *Node {
+func SumLists2(augend, addend *LinkedListNode) *LinkedListNode {
 	var stack1 []int
 	var stack2 []int
 	for augend != nil || addend != nil {
@@ -51,9 +51,9 @@ func SumLists2(augend, addend *Node) *Node {
 	}
 
 	var carry int
-	var result *Node
+	var result *LinkedListNode
 	for len(stack1) > 0 || len(stack2) > 0 {
-		node := &Node{Data: carry}
+		node := &LinkedListNode{Data: carry}
 		if len(stack1) > 0 {
 			node.Data += stack1[len(stack1)-1]
 			stack1 = stack1[:len(stack1)-1]
@@ -69,7 +69,7 @@ func SumLists2(augend, addend *Node) *Node {
 		result = node
 	}
 	if carry > 0 {
-		node := &Node{Data: carry}
+		node := &LinkedListNode{Data: carry}
 		node.Next = result
 		result = node
 	}

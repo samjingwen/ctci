@@ -6,9 +6,9 @@ import (
 import . "ctci/chapter2"
 
 type ArgsAndWants struct {
-	node *Node
-	args *Node
-	want *Node
+	node *LinkedListNode
+	args *LinkedListNode
+	want *LinkedListNode
 }
 
 var tests = []struct {
