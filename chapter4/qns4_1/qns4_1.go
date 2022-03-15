@@ -1,6 +1,6 @@
 package qns4_1
 
-import . "ctci/chapter4"
+import . "ctci/chapter3"
 
 // adjacency list
 type Graph [][]int

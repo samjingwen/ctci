@@ -62,12 +62,14 @@ func (tree *BST) Depth() int {
 }
 
 func (tree *BST) LevelOrderTraversal() []int {
+	return tree.RootNode.LevelOrderTraversal()
+}
+
+func (node *TreeNode) LevelOrderTraversal() []int {
 	var res []int
 
-	root := tree.RootNode
-
 	queue := Queue{}
-	queue.Enqueue(root)
+	queue.Enqueue(node)
 	for !queue.IsEmpty() {
 		curr, _ := queue.Deque()
 		node := curr.(*TreeNode)
@@ -80,6 +82,49 @@ func (tree *BST) LevelOrderTraversal() []int {
 		}
 	}
 	return res
+}
+
+func (tree *BST) PreOrderTraversal() []int {
+	return tree.RootNode.PreOrderTraversal()
+}
+
+func (node *TreeNode) PreOrderTraversal() []int {
+	var res []int
+
+	var iter func(node *TreeNode)
+	iter = func(node *TreeNode) {
+		if node == nil {
+			return
+		}
+		res = append(res, node.Data)
+		iter(node.Left)
+		iter(node.Right)
+	}
+
+	iter(node)
+	return res
+}
+
+func (tree *BST) PostOrderTraversal() []int {
+	return tree.RootNode.PostOrderTraversal()
+}
+
+func (node *TreeNode) PostOrderTraversal() []int {
+	var res []int
+
+	var iter func(node *TreeNode)
+	iter = func(node *TreeNode) {
+		if node == nil {
+			return
+		}
+		iter(node.Left)
+		iter(node.Right)
+		res = append(res, node.Data)
+	}
+
+	iter(node)
+	return res
+
 }
 
 func max(a, b int) int {
