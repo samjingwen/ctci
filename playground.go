@@ -7,21 +7,12 @@ import (
 )
 
 func main() {
-	maxValue := 10
-	result := make([]int, 0, maxValue)
-	for i := 0; i < maxValue; i++ {
-		if i%2 == 0 {
-			result = append(result, i)
-		}
+
+	var leftNodeSize int
+	if leftNodeSize = 2; false {
+		leftNodeSize = 3
 	}
-	for i := range result {
-		fmt.Printf("%d: %v\n", i, &result[i])
-	}
-	newSlice := result[1:3]
-	newSlice2 := result[2:4]
-	fmt.Printf("[:]: %s\n", getSliceHeader(&result))
-	fmt.Printf("[1:3]: %s\n", getSliceHeader(&newSlice))
-	fmt.Printf("[2:4]: %s\n", getSliceHeader(&newSlice2))
+	fmt.Println(leftNodeSize)
 }
 
 func getSliceHeader(slice *[]int) string {
