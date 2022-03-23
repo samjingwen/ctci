@@ -6,7 +6,7 @@ import (
 
 func main() {
 
-	fmt.Printf("%b\n", 1<<2)
+	fmt.Printf("%v", (3.14+1e20)-1e20)
 	fmt.Printf("%v\n", getBit(0b1010101, 2))
 }
 
