@@ -5,9 +5,12 @@ import (
 )
 
 func main() {
-
-	fmt.Printf("%v", (3.14+1e20)-1e20)
-	fmt.Printf("%v\n", getBit(0b1010101, 2))
+	var x uint32 = 0xaaaaaaaa
+	var y uint32 = 0x55555555
+	fmt.Printf("%b\n", x)
+	fmt.Printf("%b\n", y)
+	fmt.Printf("%b\n", 0xa)
+	fmt.Printf("%b\n", 5)
 }
 
 func getBit(num uint32, i int) bool {
