@@ -23,7 +23,7 @@ func Apocalypse() float64 {
 			girls := 0
 			for girls == 0 {
 				r1 := rand.New(rand.NewSource(time.Now().UnixNano()))
-				if r1.Float64() < 0.5 {
+				if r1.Intn(2) == 1 {
 					boys++
 				} else {
 					girls++

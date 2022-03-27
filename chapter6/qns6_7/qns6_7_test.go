@@ -6,7 +6,7 @@ import (
 
 func TestApocalypse(t *testing.T) {
 	res := Apocalypse()
-	if abs(1, res) > 0.1 {
+	if abs(1, res) > 0.05 {
 		t.Errorf("Population should be close to 1, got = %v", res)
 	}
 }
