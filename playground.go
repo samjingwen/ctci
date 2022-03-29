@@ -1,12 +1,7 @@
 package main
 
-import (
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	for {
-		go fmt.Print(0)
-		fmt.Print(1)
-	}
+	fmt.Printf("%b\n", ^-0b101)
 }
