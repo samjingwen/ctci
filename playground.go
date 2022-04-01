@@ -3,7 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	arr := []int{1, 2, 3, 4, 5}
-	ints := arr[:-5]
-	fmt.Println(ints)
+	var subsets [][]int
+	subsets = append(subsets, []int{})
+
+	newSet := make([][]int, len(subsets))
+	copy(newSet, subsets)
+	fmt.Println(newSet)
 }
