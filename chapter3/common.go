@@ -17,7 +17,7 @@ func (stack *Stack) Pop() (interface{}, error) {
 		return 0, errors.New("stack is empty")
 	}
 	val := (*stack)[stack.Size()-1]
-	*stack = (*stack)[:(*stack).Size()-1]
+	*stack = (*stack)[:stack.Size()-1]
 	return val, nil
 }
 
