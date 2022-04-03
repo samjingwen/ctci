@@ -1,12 +1,22 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var subsets [][]int
-	subsets = append(subsets, []int{})
+	//var builder strings.Builder
 
-	newSet := make([][]int, len(subsets))
-	copy(newSet, subsets)
-	fmt.Println(newSet)
+	str := "az⌘cbza"
+	runeList := []rune(str)
+
+	fmt.Printf("%v\n", len(str))
+	fmt.Printf("%v\n", len(runeList))
+
+	for i, ch := range []rune(str) {
+		fmt.Printf("%v, %+q\n", i, ch)
+
+	}
+	fmt.Printf("%v\n", str[5:])
+
 }

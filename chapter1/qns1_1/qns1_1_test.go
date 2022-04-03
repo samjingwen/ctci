@@ -42,3 +42,13 @@ func TestIsUnique3(t *testing.T) {
 		}
 	}
 }
+
+func TestIsUnique4(t *testing.T) {
+	for param, expected := range params {
+		actual := IsUnique4(param)
+		if actual != expected {
+			t.Fatalf(`Expected (%v) but got Actual (%v) for inputs (%v)`,
+				expected, actual, param)
+		}
+	}
+}

@@ -2,6 +2,8 @@ package qns1_1
 
 import (
 	"sort"
+	"strings"
+	"unicode/utf8"
 )
 
 type sortRunes []rune
@@ -55,6 +57,26 @@ func IsUnique3(str string) bool {
 			return false
 		}
 		checker |= 1 << val
+	}
+	return true
+}
+
+// https://www.reddit.com/r/golang/comments/tawo0e/started_learning_go_recently/
+func IsUnique4(str string) bool {
+	const rRuneError = utf8.RuneError
+	const sRuneError = string(rRuneError)
+	unique := make(map[rune]struct{})
+	for i, r := range str {
+		if r == rRuneError {
+			if !strings.HasPrefix(str[i:], sRuneError) {
+				// ignore UTF-8 encoding errors
+				continue
+			}
+		}
+		if _, ok := unique[r]; ok {
+			return false
+		}
+		unique[r] = struct{}{}
 	}
 	return true
 }
