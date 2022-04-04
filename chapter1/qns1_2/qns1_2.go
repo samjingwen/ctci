@@ -1,5 +1,7 @@
 package qns1_2
 
+// CheckPermutation Given two strings, write a method to
+// decide if one is a permutation of the other.
 func CheckPermutation(s1, s2 string) bool {
 	if len(s1) != len(s2) {
 		return false

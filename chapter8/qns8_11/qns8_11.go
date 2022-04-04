@@ -10,19 +10,17 @@ func Coins(n int) int {
 
 	var iter func(amount, index int) int
 	iter = func(amount, index int) int {
+		if amount == 0 {
+			return 1
+		}
+		if amount < 0 || index >= len(denoms) {
+			return 0
+		}
 		if cache[amount][index] > 0 {
 			return cache[amount][index]
 		}
-		if index >= len(denoms)-1 {
-			return 1
-		}
 
-		denomAmount := denoms[index]
-		ways := 0
-		for i := 0; i*denomAmount <= amount; i++ {
-			remaining := amount - i*denomAmount
-			ways += iter(remaining, index+1)
-		}
+		ways := iter(amount, index+1) + iter(amount-denoms[index], index)
 		cache[amount][index] = ways
 		return ways
 	}

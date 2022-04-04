@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"sort"
 )
 
 type color struct {
@@ -9,10 +10,23 @@ type color struct {
 }
 
 func main() {
-	visited := make([][]color, 5)
-	fmt.Println(visited)
-	for i, _ := range visited {
-		visited[i] = make([]color, 4)
-	}
-	fmt.Println(visited)
+	coins := []int{1, 2, 5}
+
+	sort.Sort(SortByDesc(coins))
+
+	fmt.Println(coins)
+}
+
+type SortByDesc []int
+
+func (arr SortByDesc) Len() int {
+	return len(arr)
+}
+
+func (arr SortByDesc) Less(i, j int) bool {
+	return arr[i] > arr[j]
+}
+
+func (arr SortByDesc) Swap(i, j int) {
+	arr[i], arr[j] = arr[j], arr[i]
 }
