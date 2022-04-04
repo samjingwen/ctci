@@ -4,19 +4,15 @@ import (
 	"fmt"
 )
 
+type color struct {
+	r, g, b uint8
+}
+
 func main() {
-	//var builder strings.Builder
-
-	str := "az⌘cbza"
-	runeList := []rune(str)
-
-	fmt.Printf("%v\n", len(str))
-	fmt.Printf("%v\n", len(runeList))
-
-	for i, ch := range []rune(str) {
-		fmt.Printf("%v, %+q\n", i, ch)
-
+	visited := make([][]color, 5)
+	fmt.Println(visited)
+	for i, _ := range visited {
+		visited[i] = make([]color, 4)
 	}
-	fmt.Printf("%v\n", str[5:])
-
+	fmt.Println(visited)
 }
