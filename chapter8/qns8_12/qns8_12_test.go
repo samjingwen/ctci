@@ -12,6 +12,10 @@ func TestNQueens(t *testing.T) {
 		args args
 		size int
 	}{
+		{args{1}, 1},
+		{args{2}, 0},
+		{args{3}, 0},
+		{args{4}, 2},
 		{args{8}, 92},
 	}
 	for _, tt := range tests {

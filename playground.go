@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"sort"
 )
 
 type color struct {
@@ -10,11 +9,12 @@ type color struct {
 }
 
 func main() {
-	coins := []int{1, 2, 5}
+	emptyBoard := make([][]rune, 8)
+	for i := 0; i < 8; i++ {
+		emptyBoard[i] = make([]rune, 8)
+	}
 
-	sort.Sort(SortByDesc(coins))
-
-	fmt.Println(coins)
+	fmt.Println(emptyBoard)
 }
 
 type SortByDesc []int
