@@ -1,9 +1,5 @@
 package main
 
-import (
-	"fmt"
-)
-
 type color struct {
 	r, g, b uint8
 }
@@ -14,7 +10,6 @@ func main() {
 		emptyBoard[i] = make([]rune, 8)
 	}
 
-	fmt.Println(emptyBoard)
 }
 
 type SortByDesc []int
